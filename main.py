@@ -26,13 +26,16 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div([
     html.P("Year:"),
-    dcc.RadioItems(
-        id='year',
-        options=[{'value': x, 'label': x}
-                 for x in [2013,2017]],
-        value=2017,
-        labelStyle={'display': 'inline-block'}
+    html.Div(
+        dcc.RadioItems(
+            id='year',
+            options=[{'value': x, 'label': x}
+                     for x in [2013,2017]],
+            value=2017,
+            labelStyle={'display': 'inline-block'})
+
     ),
+
     dcc.Graph(id="choropleth"),
 ])
 
